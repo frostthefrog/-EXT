@@ -278,14 +278,10 @@ function AAtoKILL:__init()
 
 	self:UtilityMenu()
 
-	
-
-	
 end
 
 function AAtoKILL:UtilityMenu()
 	self.UMenu = MenuElement({type = MENU, id = "AAtoKILL", name = "AA to KILL", leftIcon = "https://apprecs.org/ios/images/app-icons/256/d4/288732372.jpg"})
-
 	self.UMenu:MenuElement({id = "Draws", name = "Draws", type = MENU, leftIcon = "http://ddragon.leagueoflegends.com/cdn/6.12.1/img/item/2050.png"})
 	self.UMenu.Draws:MenuElement({id = "DrawAA", name = "Auto Attack Counter", value = true})
 
