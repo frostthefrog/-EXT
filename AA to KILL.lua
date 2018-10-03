@@ -288,36 +288,12 @@ function AAtoKILL:UtilityMenu()
 
 	self.UMenu:MenuElement({id = "Draws", name = "Draws", type = MENU, leftIcon = "http://ddragon.leagueoflegends.com/cdn/6.12.1/img/item/2050.png"})
 	self.UMenu.Draws:MenuElement({id = "DrawAA", name = "Auto Attack Counter", value = true})
-	self.UMenu.Draws:MenuElement({id = "DrawJng", name = "Draw Jungler Info", value = true})
 
 end
 
 
 function AAtoKILL:UtilityDraw()
 	for i, enemy in pairs(GetEnemyHeroes(25000)) do
-		if self.UMenu.Draws.DrawJng:Value() then
-			SmiteSlot = (enemy:GetSpellData(SUMMONER_1).name:lower():find("smite") and SUMMONER_1 or (enemy:GetSpellData(SUMMONER_2).name:lower():find("smite") and SUMMONER_2 or nil))
-			if SmiteSlot then
-				Smite = true
-			else
-				Smite = false
-			end
-			if Smite then
-				if enemy.alive then
-					if ValidTarget(enemy) then
-						if GetDistance(myHero.pos, enemy.pos) > 3000 then
-							Draw.Text("Jungler: Visible", 17, myHero.pos2D.x-45, myHero.pos2D.y+10, Draw.Color(0xFF32CD32))
-						else
-							Draw.Text("Jungler: Near", 17, myHero.pos2D.x-43, myHero.pos2D.y+10, Draw.Color(0xFFFF0000))
-						end
-					else
-						Draw.Text("Jungler: Invisible", 17, myHero.pos2D.x-55, myHero.pos2D.y+10, Draw.Color(0xFFFFD700))
-					end
-				else
-					Draw.Text("Jungler: Dead", 17, myHero.pos2D.x-45, myHero.pos2D.y+10, Draw.Color(0xFF32CD32))
-				end
-			end
-		end
 		if self.UMenu.Draws.DrawAA:Value() then
 			if ValidTarget(enemy) then
 				AALeft = enemy.health / myHero.totalDamage
