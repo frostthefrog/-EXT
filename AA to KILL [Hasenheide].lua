@@ -266,9 +266,9 @@ function VectorPointProjectionOnLineSegment(v1, v2, v)
 	return pointSegment, pointLine, isOnSegment
 end
 
--------------
+----------------
 -- AA to KILL --
--------------
+----------------
 
 class "AAtoKILL"
 
@@ -297,7 +297,7 @@ function AAtoKILL:UtilityDraw()
 		if self.UMenu.Draws.DrawAA:Value() then
 			if ValidTarget(enemy) then
 				AALeft = enemy.health / myHero.totalDamage
-				Draw.Text(""..tostring(math.ceil(AALeft)), 17, enemy.pos2D.x+85, enemy.pos2D.y-155, Draw.Color(0xFFcacaca))
+				Draw.Text("AA: "..tostring(math.ceil(AALeft)), 17, enemy.pos2D.x+85, enemy.pos2D.y-155, Draw.Color(0xFFcacaca))
 			end
 		end
 	end
